@@ -1,6 +1,6 @@
 import re
 
-print('\n**** insira um CPF completo (apenas números) ***\n')
+print('\n**** insira um CPF completo ***\n')
 
 ValorCPF = input('Digite o CPF: ') # receber entrada do CPF
 entrada = re.findall("\d", ValorCPF) # remover caracteres NÃO numéricos
@@ -8,7 +8,6 @@ entrada = re.findall("\d", ValorCPF) # remover caracteres NÃO numéricos
 # validar quantidade de caracteres digitados
 if len(ValorCPF) > 14 or len(entrada) < 11 or len(entrada) > 11:
     print('O CPF de nº {} é INVÁLIDO'.format(ValorCPF))
-
 # verificar se todos os dígitos são iguais
 else:
     valid = 0
@@ -16,7 +15,7 @@ else:
         valid += int(entrada[dig])
         dig += 1
     if int(entrada[0]) == valid / 11:
-        print("CPF INVÁLIDO")
+        print("O CPF de nº {} é INVÁLIDO".format(ValorCPF))
 
     # rotina de cálculos do dígito verificador do CPF
     else:
@@ -44,6 +43,6 @@ else:
 
         # mensagem ao usuário
         if int(entrada[9]) != dg1 or int(entrada[10]) != dg2:
-            print("CPF INVÁLIDO")
+            print('***O CPF de nº {} é INVÁLIDO***'.format(ValorCPF))
         else:
             print('*** O CPF DE Nº {} É VÁLIDO ***'.format(ValorCPF))
